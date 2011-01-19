@@ -5,20 +5,20 @@ Provides a command line interface for Software AG's webMethods Integration Serve
 Doing these tasks synchronously is the key for scripting, so that you can ensure Integration Server is started before installing a fix and then restarting it post-fix.  Checking that the state of the Windows service is RUNNING is no indicator that Integration Server has finished starting up and is now ready to process work.
 
   Usage: webmethadone [options] [package]
-          --start                      Start webMethods Integration Server
-          --stop                       Stop webMethods Integration Server
-          --restart                    Restart webMethods Integration Server
-          --install                    Install a package
-          --delete                     Delete a package
-          --disable                    Disable a package
-          --enable                     Enable a package
-          --reload                     Reload a package
-      -l, --url URL                    URL to connect to a webMethods Integration Server
-      -u, --user USER                  USER to connect with
-      -p, --password PASSWORD          PASSWORD to connect with
-      -s, --service SERVICE            webMethods Integration Server Windows SERVICE
-      -t, --timeout TIMEOUT            HTTP read TIMEOUT in seconds
-      -h, --help                       Show help
+          --start                      Starts webMethods Integration Server, or does nothing if its already started.
+          --stop                       Stops webMethods Integration Server, or does nothing if its already stopped.
+          --restart                    Restarts webMethods Integration Server.
+          --install                    Installs the given package.
+          --delete                     Deletes the given package.
+          --disable                    Disables the given package.
+          --enable                     Enables the given package.
+          --reload                     Reloads the given package.
+      -l, --url URL                    URL for connecting to a webMethods Integration Server. Default is 'http://localhost:5555'.
+      -u, --user USER                  USER to connect to the server with. Default is 'Administrator'.
+      -p, --password PASSWORD          PASSWORD to connect to the server with. Default is 'manage'.
+      -s, --service SERVICE            Integration Server windows SERVICE name, required when stopping, starting or restarting. Default is 'webMethodsIntegrationServer_7.1'.
+      -t, --timeout TIMEOUT            How long to wait for an HTTP response from the server in seconds.  Default is 600 seconds (10 minutes).
+      -h, --help                       Show this help
       
 Example: ensure IS is started, install TNS_7.1.2_Fix4 packages, then restart
 
