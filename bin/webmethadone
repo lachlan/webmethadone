@@ -19,7 +19,7 @@ options = {
 }
 
 parser = OptionParser.new do |opts|
-  opts.banner = "Usage: #{__FILE__} [options] [package]"
+  opts.banner = "Usage: #{File.basename(__FILE__)} [options] [package]"
   opts.on("--start", "Start webMethods Integration Server") do 
     options[:action] = :start
   end
