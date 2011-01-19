@@ -1,4 +1,4 @@
-= webmethadone
+= webmethadone - for when you need to give webMethods a shot in the arm
 
 Provides a command line interface for Software AG's webMethods Integration Server (http://www.softwareag.com/Corporate/products/wm/default.asp) allowing you to synchronously start/stop/restart the server, and install/reload/enable/disable/delete packages, making scripting of maintenance tasks against Integration Server a possibility.
 
