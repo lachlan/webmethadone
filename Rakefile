@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/lachlan/webmethadone"
   gem.license = "MIT"
   gem.summary = %Q{webMethods Integration Server command line interface}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.description = %Q{Provides a command line interface for webMethods Integration Server allowing you to start/stop/restart the server, and install/reload/enable/disable/delete packages}
   gem.email = "lachlan.dowding@gmail.com"
   gem.authors = ["Lachlan Dowding"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
