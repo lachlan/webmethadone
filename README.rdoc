@@ -22,10 +22,10 @@ Doing these tasks synchronously is the key for scripting, so that you can ensure
       
 Example: ensure IS is started, install TNS_7.1.2_Fix4 packages, then restart
 
-  webmethadone --url http://localhost:5555 --user Administrator --password manage -s webMethodsIntegrationServer_7.1 --start
+  webmethadone --url http://localhost:5555 --user Administrator --password manage --service webMethodsIntegrationServer_7.1 --start
   webmethadone --url http://localhost:5555 --user Administrator --password manage --install WmTN_7.1.2_Fix4.zip
   webmethadone --url http://localhost:5555 --user Administrator --password manage --install WmTNWeb7.1.2_Fix4.zip
-  webmethadone --url http://localhost:5555 --user Administrator --password manage -s webMethodsIntegrationServer_7.1 --restart
+  webmethadone --url http://localhost:5555 --user Administrator --password manage --service webMethodsIntegrationServer_7.1 --restart
 
 Caveats:
 * assumes a Windows platform
