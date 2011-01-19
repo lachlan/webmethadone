@@ -1,6 +1,20 @@
 = webmethadone
 
-Description goes here.
+Provides a command line interface for Software AG's webMethods Integration Server (http://www.softwareag.com/Corporate/products/wm/default.asp) allowing you to synchronously start/stop/restart the server, and install/reload/enable/disable/delete packages, making scripting of maintenance tasks against Integration Server a possibility.
+
+Doing these tasks synchronously is the key for scripting, so that you can ensure Integration Server is started before installing a fix and then restarting it post-fix.  Checking that the state of the Windows service is RUNNING is no indicator that Integration Server has finished starting up and is now ready to process work.
+
+Example: ensure IS is started, install TNS_7.1.2_Fix4 packages, then restart
+
+  webmethodone -l http://localhost:5555 -u Administrator -p manage -s webMethodsIntegrationServer_7.1 --start
+  webmethodone -l http://localhost:5555 -u Administrator -p manage --install WmTN_7.1.2_Fix4.zip
+  webmethodone -l http://localhost:5555 -u Administrator -p manage --install WmTNWeb7.1.2_Fix4.zip
+  webmethodone -l http://localhost:5555 -u Administrator -p manage -s webMethodsIntegrationServer_7.1 --restart
+
+Caveats:
+* assumes a Windows platform
+* assumes Integration Server is installed as a Windows Service
+* when installing a package its zip archive should already be in ./replication/inbound
 
 == Contributing to webmethadone
  
