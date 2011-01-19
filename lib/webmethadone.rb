@@ -10,7 +10,7 @@ module WebMethadone
     # Creates a new Integration Server client.
     #
     # url      - The Integration Server to connect to.
-    # service  - The Integration Server windows service name, required for starting IS.
+    # service  - The Integration Server windows service name, required for stopping, starting and restarting IS.
     # user     - The user to use when connecting to the server.
     # password - The password to use when connecting to the server.
     # timeout  - The number of seconds to wait for an HTTP response from the server.

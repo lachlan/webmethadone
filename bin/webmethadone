@@ -20,46 +20,46 @@ options = {
 
 parser = OptionParser.new do |opts|
   opts.banner = "Usage: #{File.basename(__FILE__)} [options] [package]"
-  opts.on("--start", "Start webMethods Integration Server") do 
+  opts.on("--start", "Starts webMethods Integration Server, or does nothing if its already started.") do 
     options[:action] = :start
   end
-  opts.on("--stop", "Stop webMethods Integration Server") do 
+  opts.on("--stop", "Stops webMethods Integration Server, or does nothing if its already stopped.") do 
     options[:action] = :stop
   end  
-  opts.on("--restart", "Restart webMethods Integration Server") do 
+  opts.on("--restart", "Restarts webMethods Integration Server.") do 
     options[:action] = :restart
   end  
-  opts.on("--install", "Install a package") do
+  opts.on("--install", "Installs the given package.") do
     options[:action] = :install
   end
-  opts.on("--delete", "Delete a package") do
+  opts.on("--delete", "Deletes the given package.") do
     options[:action] = :delete
   end
-  opts.on("--disable", "Disable a package") do
+  opts.on("--disable", "Disables the given package.") do
     options[:action] = :disable
   end
-  opts.on("--enable", "Enable a package") do
+  opts.on("--enable", "Enables the given package.") do
     options[:action] = :enable
   end  
-  opts.on("--reload", "Reload a package") do
+  opts.on("--reload", "Reloads the given package.") do
     options[:action] = :reload
   end   
-  opts.on("-l", "--url URL", "URL to connect to a webMethods Integration Server") do |url|
+  opts.on("-l", "--url URL", "URL for connecting to a webMethods Integration Server. Default is 'http://localhost:5555'.") do |url|
     options[:url] = url
   end
-  opts.on("-u", "--user USER", "USER to connect with") do |user|
+  opts.on("-u", "--user USER", "USER to connect to the server with. Default is 'Administrator'.") do |user|
     options[:user] = user
   end
-  opts.on("-p", "--password PASSWORD", "PASSWORD to connect with") do |password|
+  opts.on("-p", "--password PASSWORD", "PASSWORD to connect to the server with. Default is 'manage'.") do |password|
     options[:password] = password
   end
-  opts.on("-s", "--service SERVICE", "webMethods Integration Server Windows SERVICE") do |service|
+  opts.on("-s", "--service SERVICE", "Integration Server windows SERVICE name, required when stopping, starting or restarting. Default is 'webMethodsIntegrationServer_7.1'.") do |service|
     options[:service] = service
   end
-  opts.on("-t", "--timeout TIMEOUT", "HTTP read TIMEOUT in seconds") do |timeout|
+  opts.on("-t", "--timeout TIMEOUT", "How long to wait for an HTTP response from the server in seconds.  Default is 600 seconds (10 minutes).") do |timeout|
     options[:timeout] = timeout
   end 
-  opts.on("-h", "--help", "Show help") do
+  opts.on("-h", "--help", "Show this help") do
     options[:help] = true
   end  
 end
