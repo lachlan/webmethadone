@@ -15,7 +15,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "webmethadone"
   gem.homepage = "http://github.com/lachlan/webmethadone"
   gem.license = "MIT"
-  gem.summary = %Q{webMethods Integration Server command line interface}
+  gem.summary = %Q{For when you need to give webMethods a shot in the arm}
   gem.description = %Q{Provides a command line interface for webMethods Integration Server allowing you to start/stop/restart the server, and install/reload/enable/disable/delete packages}
   gem.email = "lachlan.dowding@gmail.com"
   gem.authors = ["Lachlan Dowding"]
