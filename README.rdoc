@@ -4,6 +4,22 @@ Provides a command line interface for Software AG's webMethods Integration Serve
 
 Doing these tasks synchronously is the key for scripting, so that you can ensure Integration Server is started before installing a fix and then restarting it post-fix.  Checking that the state of the Windows service is RUNNING is no indicator that Integration Server has finished starting up and is now ready to process work.
 
+  Usage: webmethadone [options] [package]
+          --start                      Start webMethods Integration Server
+          --stop                       Stop webMethods Integration Server
+          --restart                    Restart webMethods Integration Server
+          --install                    Install a package
+          --delete                     Delete a package
+          --disable                    Disable a package
+          --enable                     Enable a package
+          --reload                     Reload a package
+      -l, --url URL                    URL to connect to a webMethods Integration Server
+      -u, --user USER                  USER to connect with
+      -p, --password PASSWORD          PASSWORD to connect with
+      -s, --service SERVICE            webMethods Integration Server Windows SERVICE
+      -t, --timeout TIMEOUT            HTTP read TIMEOUT in seconds
+      -h, --help                       Show help
+      
 Example: ensure IS is started, install TNS_7.1.2_Fix4 packages, then restart
 
   webmethodone -l http://localhost:5555 -u Administrator -p manage -s webMethodsIntegrationServer_7.1 --start
