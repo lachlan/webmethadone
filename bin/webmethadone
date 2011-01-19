@@ -1,0 +1,76 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'rubygems'
+rescue LoadError
+  # no rubygems to load, so we fail silently
+end
+
+require 'optparse'
+require File.dirname(__FILE__) + '/../lib/webmethadone'
+
+#defaults
+options = {
+  :url => 'http://localhost:5555', 
+  :service => 'webMethodsIntegrationServer_7.1', 
+  :user => 'Administrator', 
+  :password => 'manage',
+  :timeout => 600
+}
+
+parser = OptionParser.new do |opts|
+  opts.banner = "Usage: #{__FILE__} [options] [package]"
+  opts.on("--start", "Start webMethods Integration Server") do 
+    options[:action] = :start
+  end
+  opts.on("--stop", "Stop webMethods Integration Server") do 
+    options[:action] = :stop
+  end  
+  opts.on("--restart", "Restart webMethods Integration Server") do 
+    options[:action] = :restart
+  end  
+  opts.on("--install", "Install a package") do
+    options[:action] = :install
+  end
+  opts.on("--delete", "Delete a package") do
+    options[:action] = :delete
+  end
+  opts.on("--disable", "Disable a package") do
+    options[:action] = :disable
+  end
+  opts.on("--enable", "Enable a package") do
+    options[:action] = :enable
+  end  
+  opts.on("--reload", "Reload a package") do
+    options[:action] = :reload
+  end   
+  opts.on("-l", "--url URL", "URL to connect to a webMethods Integration Server") do |url|
+    options[:url] = url
+  end
+  opts.on("-u", "--user USER", "USER to connect with") do |user|
+    options[:user] = user
+  end
+  opts.on("-p", "--password PASSWORD", "PASSWORD to connect with") do |password|
+    options[:password] = password
+  end
+  opts.on("-s", "--service SERVICE", "webMethods Integration Server Windows SERVICE") do |service|
+    options[:service] = service
+  end
+  opts.on("-t", "--timeout TIMEOUT", "HTTP read TIMEOUT in seconds") do |timeout|
+    options[:timeout] = timeout
+  end 
+  opts.on("-h", "--help", "Show help") do
+    options[:help] = true
+  end  
+end
+
+begin
+  parser.parse!
+  if options[:help] or options[:action].nil?
+    print parser
+  else
+    options[:package] = ARGV[0]
+    server = WebMethadone::IntegrationServer.new(options[:url], options[:service], options[:user], options[:password], options[:timeout])
+    server.send(options[:action], options[:package])
+  end
+end
